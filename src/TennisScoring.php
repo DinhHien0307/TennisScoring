@@ -56,7 +56,7 @@ class TennisScoring
         return $this->tied() && $this->hasMore3PointsForEach();
     }
 
-    //4.describe how to advantage:has more than 4p and has 1p more than opponent 
+    //4.describe how to advantage:has more than 4p and has 1p more than opponent
     public function hasAdvantage()
     {
         return $this->hasAtLeastFourPoints() && $this->has1PointMore();

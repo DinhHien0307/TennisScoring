@@ -115,7 +115,7 @@ class TennisScoringSpec extends ObjectBehavior
     {
         $this->Hien->getPoint(5);
         $this->Dinh->getPoint(3);
-        $this->score()->shouldReturn("Win for Hien");   
+        $this->score()->shouldReturn("Win for Hien");
     }
 
     //commit

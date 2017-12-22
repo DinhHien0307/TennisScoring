@@ -13,7 +13,15 @@ class Player
 
     public function getPoint($point)
     {
+        if ($point < 0) {
+            throw new InvalidArgumentException;
+            return 0;
+        }
+
+        if (!is_numeric($point)) {
+            throw new InvalidArgumentException;
+            return 0;
+        }
         $this->point = $point;
     }
 }
-?>
