@@ -18,7 +18,7 @@ class TennisScoring
             0 => "Love",
             1 => "Fifteen",
             2 => "Thirty",
-            3 => "Fourty"
+            3 => "Forty"
         ];
 
         //4.
@@ -43,7 +43,7 @@ class TennisScoring
     }
 
     //2. scores from zero to three points are described as "love", "fifteen", "thirty", and "forty" respectively.
-    
+
     //1.describe how to win: has more than 4p and has 2p more than opponent
     public function hasWin()
     {

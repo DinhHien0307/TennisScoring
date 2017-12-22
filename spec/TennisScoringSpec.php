@@ -40,7 +40,13 @@ class TennisScoringSpec extends ObjectBehavior
     public function it_score_3_0_game()
     {
         $this->Hien->getPoint(3);
-        $this->score()->shouldReturn("Fourty-Love");
+        $this->score()->shouldReturn("Forty-Love");
+    }
+
+    public function it_score_0_3_game()
+    {
+        $this->Dinh->getPoint(3);
+        $this->score()->shouldReturn("Love-Forty");
     }
 
     public function it_score_1_1_game()
@@ -103,6 +109,13 @@ class TennisScoringSpec extends ObjectBehavior
         $this->Hien->getPoint(8);
         $this->Dinh->getPoint(6);
         $this->score()->shouldReturn("Win for Hien");
+    }
+
+    public function it_score_3_1_game()
+    {
+        $this->Hien->getPoint(5);
+        $this->Dinh->getPoint(3);
+        $this->score()->shouldReturn("Win for Hien");   
     }
 
     //commit
