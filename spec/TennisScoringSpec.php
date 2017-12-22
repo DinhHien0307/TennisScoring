@@ -5,11 +5,38 @@ namespace spec;
 use TennisScoring;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use Player;
 
 class TennisScoringSpec extends ObjectBehavior
 {
-    function it_is_a_0_0_game()
+    protected $Hien;
+    protected $Dinh;
+    public function let()
     {
-        $this->score()->shouldBe("Love-Love");
+        $this->Hien = new Player("Hien", 0);
+        $this->Dinh = new Player("Dinh", 0);
+        $this->beConstructedWith($this->Hien, $this->Dinh);
+    }
+    public function it_score_0_0_game()
+    {
+        $this->score()->shouldReturn("Love-Love");
+    }
+
+    public function it_score_1_0_game()
+    {
+        $this->Hien->getPoint(1);
+        $this->score()->shouldReturn("Fifteen-Love");
+    }
+
+    public function it_score_2_0_game()
+    {
+        $this->Hien->getPoint(2);
+        $this->score()->shouldReturn("Thirty-Love");
+    }
+
+    public function it_score_3_0_game()
+    {
+        $this->Hien->getPoint(3);
+        $this->score()->shouldReturn("Fourty-Love");
     }
 }
