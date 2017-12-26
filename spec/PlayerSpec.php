@@ -14,15 +14,15 @@ class PlayerSpec extends ObjectBehavior
         $this->shouldHaveType(Player::class);
     }
 
-    protected $player_1;
-    protected $player_2;
+    protected $name;
+    protected $point;
 
     //construct new Oject
     public function let()
     {
-        $this->player_1 = new Player("player_1", 0);
-        $this->player_2 = new Player("player_2", 0);
-        $this->beConstructedWith($this->player_1, $this->player_2);
+        $this->name = "player_1";
+        $this->point = 0;
+        $this->beConstructedWith($this->name, $this->point);
     }
 
     public function it_exception_negative_number()

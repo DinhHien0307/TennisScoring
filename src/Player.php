@@ -7,6 +7,7 @@ class Player
 
     public function __construct($name, $point)
     {
+        $this->checkException($point);
         $this->name = $name;
         $this->point = $point;
     }
@@ -21,7 +22,19 @@ class Player
         return $this->point;
     }
 
+    /**
+     * function setPoint with check value
+     *
+     * @param $point
+     * @return $point
+     */
     public function setPoint($point)
+    {
+        $this->checkException($point);
+        $this->point = $point;
+    }
+
+    private function checkException($point)
     {
         if ($point < 0) {
             throw new InvalidArgumentException("should not negative number");
@@ -30,6 +43,5 @@ class Player
         if (!is_numeric($point)) {
             throw new InvalidArgumentException("should be a number");
         }
-        $this->point = $point;
     }
 }
