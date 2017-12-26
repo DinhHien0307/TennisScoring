@@ -5,11 +5,11 @@ class TennisScoring
     protected $player_1;
     protected $player_2;
 
-    const Advantage = "Advantage for ";
-    const Deuce = "Deuce";
-    const Win = "Win for ";
-    const enoughPointToWin = 4;
-    const enoughPointToDeuce = 6;
+    const ADVANTAGE = "Advantage for ";
+    const DEUCE = "Deuce";
+    const WIN = "Win for ";
+    const ENOUGH_POINT_TO_WIN = 4;
+    const ENOUGH_POINT_TO_DEUCE = 6;
     /**
      * Create player instance
      *
@@ -36,13 +36,13 @@ class TennisScoring
             3 => "Forty"
         ];
         if ($this->hasAdvantage()) {
-            return $result .= self::Advantage . $this->leader()->getName();
+            return $result .= self::ADVANTAGE . $this->leader()->getName();
         }
         if ($this->hasDeuce()) {
-            return $result .= self::Deuce;
+            return $result .= self::DEUCE;
         }
         if ($this->hasWin()) {
-            return $result .= self::Win .$this->leader()->getName();
+            return $result .= self::WIN .$this->leader()->getName();
         }
         $result .= $lookup[$this->player_1->getPoint()] ."-";
         $result .= $lookup[$this->player_2->getPoint()];
@@ -72,7 +72,7 @@ class TennisScoring
 
     private function hasMore3PointsForEach()
     {
-        return $this->player_1->getPoint() + $this->player_2->getPoint() >= self::enoughPointToDeuce;
+        return $this->player_1->getPoint() + $this->player_2->getPoint() >= self::ENOUGH_POINT_TO_DEUCE;
     }
 
     private function tied()
@@ -93,6 +93,6 @@ class TennisScoring
     
     private function hasAtLeastFourPoints()
     {
-        return max($this->player_1->getPoint(), $this->player_2->getPoint()) >= self::enoughPointToWin;
+        return max($this->player_1->getPoint(), $this->player_2->getPoint()) >= self::ENOUGH_POINT_TO_WIN;
     }
 }
