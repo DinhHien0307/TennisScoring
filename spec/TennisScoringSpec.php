@@ -118,10 +118,5 @@ class TennisScoringSpec extends ObjectBehavior
         $this->player_2->setPoint(1);
         $this->score()->shouldReturn("Forty-Fifteen");
     }
-
-    public function it_exception()
-    {
-        $this->player_1->setPoint(-1);
-    }
     //commit
 }
