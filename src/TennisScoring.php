@@ -36,16 +36,16 @@ class TennisScoring
             3 => "Forty"
         ];
         if ($this->hasAdvantage()) {
-            return $result .= self::Advantage . $this->leader()->name;
+            return $result .= self::Advantage . $this->leader()->getName();
         }
         if ($this->hasDeuce()) {
             return $result .= self::Deuce;
         }
         if ($this->hasWin()) {
-            return $result .= self::Win .$this->leader()->name;
+            return $result .= self::Win .$this->leader()->getName();
         }
-        $result .= $lookup[$this->player_1->point] ."-";
-        $result .= $lookup[$this->player_2->point];
+        $result .= $lookup[$this->player_1->getPoint()] ."-";
+        $result .= $lookup[$this->player_2->getPoint()];
         return $result;
     }
     private function hasWin()
@@ -67,32 +67,32 @@ class TennisScoring
 
     private function has1PointMore()
     {
-        return  abs($this->player_1->point - $this->player_2->point) == 1;
+        return  abs($this->player_1->getPoint() - $this->player_2->getPoint()) == 1;
     }
 
     private function hasMore3PointsForEach()
     {
-        return $this->player_1->point + $this->player_2->point >= self::enoughPointToDeuce;
+        return $this->player_1->getPoint() + $this->player_2->getPoint() >= self::enoughPointToDeuce;
     }
 
     private function tied()
     {
-        return $this->player_1->point == $this->player_2->point;
+        return $this->player_1->getPoint() == $this->player_2->getPoint();
     }
 
     private function leader()
     {
-        return $this->player_1->point > $this->player_2->point
+        return $this->player_1->getPoint() > $this->player_2->getPoint()
              ? $this->player_1 : $this->player_2;
     }
 
     private function hasAtLeastTwoPointsMore()
     {
-        return abs($this->player_1->point - $this->player_2->point)>=2;
+        return abs($this->player_1->getPoint() - $this->player_2->getPoint())>=2;
     }
     
     private function hasAtLeastFourPoints()
     {
-        return max($this->player_1->point, $this->player_2->point) >= self::enoughPointToWin;
+        return max($this->player_1->getPoint(), $this->player_2->getPoint()) >= self::enoughPointToWin;
     }
 }

@@ -28,95 +28,100 @@ class TennisScoringSpec extends ObjectBehavior
 
     public function it_score_1_0_game()
     {
-        $this->player_1->getPoint(1);// add Point to Hien
+        $this->player_1->setPoint(1);// add Point to player_1
         $this->score()->shouldReturn("Fifteen-Love");
     }
 
     public function it_score_2_0_game()
     {
-        $this->player_1->getPoint(2);
+        $this->player_1->setPoint(2);
         $this->score()->shouldReturn("Thirty-Love");
     }
 
     public function it_score_3_0_game()
     {
-        $this->player_1->getPoint(3);
+        $this->player_1->setPoint(3);
         $this->score()->shouldReturn("Forty-Love");
     }
 
     public function it_score_0_3_game()
     {
-        $this->player_2->getPoint(3);
+        $this->player_2->setPoint(3);
         $this->score()->shouldReturn("Love-Forty");
     }
 
     public function it_score_1_1_game()
     {
-        $this->player_1->getPoint(1);
-        $this->player_2->getPoint(1);
+        $this->player_1->setPoint(1);
+        $this->player_2->setPoint(1);
         $this->score()->shouldReturn("Fifteen-Fifteen");
     }
 
     public function it_score_2_2_game()
     {
-        $this->player_1->getPoint(2);
-        $this->player_2->getPoint(2);
+        $this->player_1->setPoint(2);
+        $this->player_2->setPoint(2);
         $this->score()->shouldReturn("Thirty-Thirty");
     }
 
     public function it_score_4_0_game()
     {
-        $this->player_1->getPoint(4);
+        $this->player_1->setPoint(4);
         $this->score()->shouldReturn("Win for player_1");
     }
 
     public function it_score_2_4_game()
     {
-        $this->player_1->getPoint(2);
-        $this->player_2->getPoint(4);//add point to Dinh
+        $this->player_1->setPoint(2);
+        $this->player_2->setPoint(4);//add point to player_2
         $this->score()->shouldReturn("Win for player_2");
     }
 
     public function it_score_3_3_game()
     {
-        $this->player_1->getPoint(3);
-        $this->player_2->getPoint(3);
+        $this->player_1->setPoint(3);
+        $this->player_2->setPoint(3);
         $this->score()->shouldReturn("Deuce");
     }
 
     public function it_score_4_4_game()
     {
-        $this->player_1->getPoint(4);
-        $this->player_2->getPoint(4);
+        $this->player_1->setPoint(4);
+        $this->player_2->setPoint(4);
         $this->score()->shouldReturn("Deuce");
     }
 
     public function it_score_4_3_game()
     {
-        $this->player_1->getPoint(4);
-        $this->player_2->getPoint(3);
+        $this->player_1->setPoint(4);
+        $this->player_2->setPoint(3);
         $this->score()->shouldReturn("Advantage for player_1");
     }
 
     public function it_score_5_6_game()
     {
-        $this->player_1->getPoint(5);
-        $this->player_2->getPoint(6);
+        $this->player_1->setPoint(5);
+        $this->player_2->setPoint(6);
         $this->score()->shouldReturn("Advantage for player_2");
     }
 
     public function it_score_8_6_game()
     {
-        $this->player_1->getPoint(8);
-        $this->player_2->getPoint(6);
+        $this->player_1->setPoint(8);
+        $this->player_2->setPoint(6);
         $this->score()->shouldReturn("Win for player_1");
     }
 
     public function it_score_3_1_game()
     {
-        $this->player_1->getPoint(3);
-        $this->player_2->getPoint(1);
+        $this->player_1->setPoint(3);
+        $this->player_2->setPoint(1);
         $this->score()->shouldReturn("Forty-Fifteen");
+    }
+
+    public function it_exception()
+    {
+        $this->player_1->setPoint(-1);
     }
     //commit
 }

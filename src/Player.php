@@ -2,8 +2,8 @@
 
 class Player
 {
-    public $name;
-    public $point;
+    private $name;
+    private $point;
 
     public function __construct($name, $point)
     {
@@ -11,7 +11,17 @@ class Player
         $this->point = $point;
     }
 
-    public function getPoint($point)
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getPoint()
+    {
+        return $this->point;
+    }
+
+    public function setPoint($point)
     {
         if ($point < 0) {
             throw new InvalidArgumentException("should not negative number");
